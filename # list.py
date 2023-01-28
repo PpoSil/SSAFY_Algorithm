@@ -17,7 +17,7 @@
 
 # 모두 삭제: .clear()
 
-# 위치 반환:  .index(x) 값이 없으면 error가 뜸!
+# 위치 반환:  .index(x) 값이 없으면 error
 
 # 원하는 값의 개수 반환: .count(x)
 
