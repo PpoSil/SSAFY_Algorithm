@@ -50,7 +50,8 @@ class Person:
         self.eat = eat
         print(f'냠냠 맛있는 {eat}')
 
-p1 = Person('jelly') # 젤리만 먹고 살아야 함.
-p1 = Person('apple')
+p1 = Person('jelly') # 젤리만 먹고 살아야 함. # 굳이 p1.eat('변수') 이런거 더 안 적어도 됨!!!! 
+p1 = Person('apple') # p1에 들어있는 것처럼 보이지만 사실은 주인이 없음. 이미 p1에는 젤리가 할당되어있음!
+p1 = Person() # error
 # 위의 p1과 아래의 p1이 같은 변수명이지만 밑의 p1의 사과는 주인을 잃어버림.
 # 하나의 값만 할당 가능할 때 쓰는 쪽..?
