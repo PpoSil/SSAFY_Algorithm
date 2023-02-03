@@ -45,4 +45,5 @@
 # if print(a.reverse()) # None != print(a)
 
 # ''.count('찾고자 하는 요소') vs len()함수
-# 
+# ''.count(): 찾고자 하는 항목이 파이썬의 리스트에 몇 개나 들어있는지 확인
+# len(): 리스트의 전체 갯수 세기
