@@ -43,3 +43,6 @@
 # 역순: .reverse()
 # 원본과 다른 역순 리스트 생성
 # if print(a.reverse()) # None != print(a)
+
+# ''.count('찾고자 하는 요소') vs len()함수
+# 
