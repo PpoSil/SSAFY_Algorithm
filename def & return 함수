@@ -33,3 +33,9 @@ def myself(name, nationality='한국', age):
     
 myself('코드잇', 1) # 기본값이 한국이므로 '내 이름은 코드잇 /n 내 나이는 1살 /n 국적은 한국'으로 출력
 myself('코드잇', 1, '미국') # 옵셔널 파라미터의 값이 미국으로 바뀌었으므로 '내 이름은 코드잇 /n 내 나이는 1살 /n 국적은 '으로 출력
+# def문 안에 여러 변수값이 저장되어있다면
+# ex)
+def name():
+    x = 'solbi'
+    x = 'eunsol'
+    print(x) # 가장 최근 값인 eunsol이 저장되어있음!
