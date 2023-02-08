@@ -20,3 +20,16 @@ def get_square(x):
 print(print_square(3)) # None
 get_square(3) # print를 하지 못 함 so 아무것도 출력 x
 print(get_square(3)) # 9
+
+# def문
+# 파라미터에게 기본값을 설정해줄 수 있는데 기본값을 설정해두면 함수를 호출할 때 꼭 파라미터에 값을 안 넘겨줘도 됨!
+# => 이를 '옵셔널 파라미터'라고 함
+# but 옵셔널 파라미터는 모두 마지막에 존재하여야 함!
+# 다른 값들 사이에 있으면 오류발생
+def myself(name, nationality='한국', age):
+    print(f'내 이름은{name}')
+    print(f'내 나이는{age}살')
+    print(f'국적은 {nationality}')
+    
+myself('코드잇', 1) # 기본값이 한국이므로 '내 이름은 코드잇 /n 내 나이는 1살 /n 국적은 한국'으로 출력
+myself('코드잇', 1, '미국') # 옵셔널 파라미터의 값이 미국으로 바뀌었으므로 '내 이름은 코드잇 /n 내 나이는 1살 /n 국적은 '으로 출력
