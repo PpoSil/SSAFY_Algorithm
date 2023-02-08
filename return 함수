@@ -1,11 +1,22 @@
-return문의 역할값
-값 돌려주기
-함수 즉시 종료하기
+# return문의 역할값
+# 값 돌려주기
+# 함수 즉시 종료하기
 
 def square(x):
-  print('함수 시작') # 실행
-  return x*x # 값 돌려줌과 동시에 함수 즉시 종료
-  print('함수 끝') # 앞에서 함수가 종료되었기에 출력되지 x
+    print('함수 시작') # 실행
+    return x*x # 값 돌려줌과 동시에 함수 즉시 종료
+    print('함수 끝') # 앞에서 함수가 종료되었기에 출력되지 x
   
 print(square(3)) # 9
 print('hello python') # hello python
+
+# return문의 print와 return 차이
+def print_square(x):
+    print( x * x ) # 15번째 줄 자체는 9가 출력 / but 값을 returen하지 않음 so 20번줄에서는 값이 없으므로 None 출력
+    
+def get_square(x):
+    return x * x # 값 자체가 9 but 출력을 실행하진 않음 출력하고 싶으면 21번줄처럼 print(get_sqaure(3))을 해줘야 값이 출력됨.
+
+print(print_square(3)) # None
+get_square(3) # print를 하지 못 함 so 아무것도 출력 x
+print(get_square(3)) # 9
