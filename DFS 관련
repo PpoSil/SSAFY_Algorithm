@@ -26,7 +26,7 @@ def dfs(s, e, used=[]):  # s = 시작지점, e = 찾는지점, used = 사용한 
 # 구현이 간단
 # but 노드 간의 연결을 확인할 때에는 시간복잡도가 증가한다
 
-node, edge = map(int, input().split())  # 노드와 간선의 수(정점, 연결선 수)
+node, edge = map(int, input().split())  # 노드와 간선의 수(점의 개수 = 노드, 연결선 수 = 간선)
 
 # 노드의 갯수가 N, N X N 이차원 배열을 만든다.
 # a -> f 연결되어 있는지 확인하라... adj[a][f]
@@ -35,7 +35,7 @@ adj = [[0 for _ in range(node)] for _ in range(node)]
 
 # 입력으로 노드간의 연결을 입력으로 받는다 (간선 정보)
 for _ in range(edge):  # 보통 간선으로 받음
-    src, dest = map(int, input().split())  # 시작정점과 끝정점을 입력받는다
+    src, dest = map(int, input().split())  # 시작정점과 끝정점의 연결 여부 입력
     adj[src][dest] = 1  # src <-> dest 서로 연결점이 있다 ->> 단반향임! 양방향 필요
     adj[dest][src] = 1  # dest <-> src 서로 연결점이 있다
 
@@ -53,3 +53,51 @@ for _ in range(edge):
     src, dest = map(int, input().split())
     adj[src].append(dest)  # src -> dest 연결 정보를 추가 ->> 단방향임 양방향 필요!
     adj[dest].append(src)  # dest -> src 연결 정보를 추가
+    
+    
+3. stack으로?    
+def dfs(graph, visited, start, end):
+    # 현재 위치가 목적지면 1 반환, 종료 (기저조건)
+    if start == end:
+        return True
+
+    # 현재 위치 방문 체크
+    visited[start] = True
+
+    # 현재 위치와 연결된 모든 노드 탐색
+    for nxt in graph[start]:
+        # 연결된 노드의 방문 여부 확인
+        if visited[nxt] == False:
+            # 들어갈 노드 방문 체크 해주고 재귀 호출
+            visited[nxt] = True
+            r = dfs(graph, visited, nxt, end)
+            # 목적지에 도달해서 반환받은 1로 종료
+            if r == True:
+                return True
+
+    return False
+
+
+T = int(input())
+for tc in range(1, T + 1):
+    # 정점 갯수와 간선의 갯수 입력
+    V, E = map(int, input().split())
+
+    # 인접 리스트를 생성하는데...
+    graph = [[] for _ in range(V + 1)]
+    for i in range(E):
+        s, e = map(int, input().split())
+        graph[s].append(e) # 단방향 그래프라서 s -> e
+
+    # S -> ... -> G 연결하는 경로가 있는가...?
+    S, G = map(int, input().split())
+
+    # 방문 체크할 배열 생성
+    visited = [False] * (V + 1)
+
+    # 목적지 도달했는지 여부로 결과 출력
+    result = dfs(graph, visited, S, G)
+    if result == True:
+        print(f'#{tc} 1')
+    else:
+        print(f'#{tc} 0')
