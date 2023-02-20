@@ -1,0 +1,10 @@
+삽입하는 쪽 : rear   삭제하는 쪽 : front 
+삽입 연산을 enqueue, 삭제 연산을 dequeue
+
+overflow : queue의 용량이 다 차서 더 이상 enqueue할 수 없는 상태
+underflow : queue에 data가 없어서 dequeue할 data가 없는 상태
+
+insert, enqueue, offer, push : queue의 rear에 새로운 요소를 추가한다.
+remove, dequeue, poll, pop : queue의 front에 있는 요소를 queue에서 반환하고 삭제한다.
+peek, element, front : queue의 front에 있는 요소를 queue에서 삭제하지 않고 반환한다.
+IsEmpty : queue의 empty 여부를 출력한다.
