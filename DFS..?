@@ -1,0 +1,23 @@
+def dfs(visited, y, x):
+    if y == end_y and x == end_x:
+        return True
+    else:
+        visited[y][x] == True
+
+    for i in range(4):
+        nx = x + dx[i]
+        ny = y + dy[i]
+        if nx < 0 or ny < 0 or ny >= n or nx <= n or num[ny][nx] == 1 or visited[ny][nx] == True:
+            continue
+
+        else:
+            if dfs(visited, ny, nx) == True:
+                return True
+
+    return False
+    
+    
+#--------------------------------------------------------------------------------------------------------
+DFS 방향 설정하기
+x축(아래로 갈 수록 +1임) -> 1-3개(아래니까 +1) / 0 3개(제자리) / -1 3개(위로 올라가면 -1) 쭉 적기 -> [1, 1, 1, 0, 0, -1, -1, -1]
+y축(오른쪽으로 갈 수록 +1임) -> -1, 0, 1 반복 -> [-1, 0, 1, -1, 1, -1, 0, 1]
