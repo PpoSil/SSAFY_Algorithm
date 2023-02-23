@@ -1,0 +1,16 @@
+def inorder(n):  # 중위탐색
+    global cnt  # 인덱스
+    if n > N:  #
+        return
+    inorder(n*2)  # 왼쪽 자식
+    lst[n] = cnt  # 왼쪽 자식 인덱스에 cnt 값 추가
+    cnt += 1  # +1
+    inorder(n*2+1)  # 오른쪽 자식
+
+t = int(input())
+for tc in range(1, t+1):
+    N = int(input())
+    lst = [0] * (N+1)  # cnt 값 넣어줄 리스트
+    cnt = 1
+    inorder(1)
+    print(f'#{tc} {lst[1]} {lst[N//2]}')
