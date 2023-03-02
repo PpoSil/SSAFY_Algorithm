@@ -1,0 +1,26 @@
+n, m = map(int, input().split())
+card = sorted(list(map(int, input().split())))
+
+
+lst = []
+for i in range(n):
+    for j in range(i+1, n):
+        for k in range(j+1, n):
+            if card[i] + card[j] + card[k] <= m:
+                lst.append(card[i] + card[j] + card[k])
+print(max(lst))
+# =====================================================================
+height = []
+for _ in range(9):
+    height.append(int(input()))
+for i in range(9):
+    for j in range(i+1,9):
+        if sum(height) - (height[i] + height[j]) == 100:
+            a = height[i]
+            b = height[j]
+height.remove(a)
+height.remove(b)
+height.sort()
+
+for i in height:
+    print(i)
