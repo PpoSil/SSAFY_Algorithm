@@ -1,0 +1,17 @@
+    # 가로세로합 구하기
+    max_sum = 0
+    for x in range(n):
+        sx, sy = n // 2, n // 2
+        for y in range(n):
+            sx += ground[x][y]
+            sy += ground[y][x]
+        max_sum = max(sx, sy, max_sum)
+    print(max_sum)
+
+    # 대각선합 구하기
+    for x in range(n):
+        sx, sy = n // 2, n // 2
+        sx += ground[x][x]
+        sy += ground[x][n-1-x]
+    max_sum = max(sx, sy, max_sum)
+    print(max_sum)
