@@ -1,0 +1,17 @@
+n = int(input())  # 색종이 장수
+box = [[-1] * 1001 for _ in range(1001)]
+
+for i in range(n):
+    x1, y1, x2, y2 = map(int, input().split())  # x1, y1, y2, x2
+    for x in range(x1, x1+x2):
+        for y in range(y1, y1+y2):
+            box[y][x] = i
+
+for i in range(n):
+    cnt1 = 0
+    for x in range(1001):
+        for y in range(1001):
+            if box[x][y] == i:
+                cnt1 += 1
+
+    print(cnt1)
