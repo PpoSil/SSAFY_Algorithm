@@ -1,0 +1,68 @@
+import math
+# 공1, 공2 사이의 각도 북쪽이 0도로 변환 함수
+# atan2는 동쪽이 0도 시계 반대방향
+# 일타싸피는 북쪽이 0도 시계 방향
+def arctan(ball1, ball2):
+    x = ball1[0] - ball2[0]
+    y = ball1[1] - ball2[1]
+    return -(math.degrees(math.atan2(y, x)) + 270) % 360
+
+
+
+# 공과 공 사이 거리 구하는 함수
+def cal_r(ball1, ball2):
+    x = ball1[0] - ball2[0]
+    y = ball1[1] - ball2[1]
+    return math.sqrt( x**2 + y** 2)
+
+
+def play():
+    global angle, power
+
+    my_ball = balls[0]
+
+    # 공중에 칠공 정하는거도 넣을 수 있는 공 고르는걸로 바꿔야대는데 아직 안만듬
+    ball = balls[1]
+
+    # 골인구멍중에 타겟 공이랑 가장 가까운 구멍 고르는 for문
+    mn = float('inf')
+    for hl in HOLES:
+        if mn > cal_r(ball, hl):
+            mn = cal_r(ball, hl)
+            hole = hl
+
+    x = ball[0] - hole[0]
+    y = ball[1] - hole[1]
+    theta = math.atan2(y, x)
+
+    target = []
+    if ball[0] < hole[0]:
+        target.append(ball[0] - math.cos(theta) * 2 * size_ball)
+    else:
+        target.append(ball[0] + math.cos(theta) * 2 * size_ball)
+
+    if ball[1] < hole[1]:
+        target.append(ball[1] - math.sin(theta) * 2 * size_ball)
+    else:
+        target.append(ball[1] + math.sin(theta) * 2 * size_ball)
+
+    angle = arctan(my_ball, target)
+    power = 100
+
+
+''''''
+
+# 안외울 부분
+size_ball = 5.73
+balls = []
+HOLES = []
+
+angle = 0.0
+power = 0.0
+
+play()
+
+print(angle)
+print(power)
+
+''''''
